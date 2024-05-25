@@ -4,6 +4,7 @@ import Home from './pages/home/home';
 import './index.css'
 import Explore from './pages/explore/explore';
 import Profile from './pages/profile/profile';
+import Login from './pages/login/login';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,6 +14,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login/>
+  },
+  {
+    path: "/home",
     element: <Home/>
   },
   {
