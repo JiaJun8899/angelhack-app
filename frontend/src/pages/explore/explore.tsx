@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
     Accordion,
@@ -8,6 +8,7 @@ import {
     ListItem,
     Input
 } from "@material-tailwind/react";
+import exploreData from '../../data/explore-data'
 
 const explore = () => {
     let navigate = useNavigate();
@@ -17,57 +18,50 @@ const explore = () => {
     }
 
     const [open, setOpen] = React.useState(1);
-    const handleOpen = (value) => setOpen(open === value ? 0 : value);
+    const [filteredData, setFilteredData] = useState(exploreData);
+
+    const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filtered = Object.keys(exploreData).reduce((acc, category) => {
+            const filteredItems = exploreData[category].filter(item =>
+                item.toLowerCase().includes(searchTerm)
+            );
+            if (filteredItems.length > 0) {
+                acc[category] = filteredItems;
+            }
+            return acc;
+        }, {});
+        setFilteredData(filtered);
+    }
 
     return (
         <>
-            <div className="mt-6 max-w-md text-center">
+            <div className="w-[90%] mt-6 text-center">
                 <Input
                     type="text"
                     placeholder="Search for resources..."
-                    className="w-[90%] !border !border-gray-300 bg-white rounded-full text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-                    labelProps={{
-                        className: "hidden",
-                    }}
+                    className="!border !border-gray-300 bg-white rounded-full text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                    labelProps={{className: "hidden"}}
+                    onChange={handleSearch}
                 />
-                <Accordion open={open === 1}>
-                    <AccordionHeader className='w-[90%] mx-6' onClick={() => handleOpen(1)}>
-                        Banking
-                    </AccordionHeader>
-                    <AccordionBody className='w-[90%] mx-6'>
-                        <List>
-                            <ListItem onClick={() => routeChange("savings-account")}>Savings Account</ListItem>
-                            <ListItem>Fixed Deposits</ListItem>
-                        </List>
-                    </AccordionBody>
-                </Accordion>
-                <Accordion open={open === 2}>
-                    <AccordionHeader className='w-[90%] mx-6' onClick={() => handleOpen(2)}>
-                        Loans
-                    </AccordionHeader>
-                    <AccordionBody className='w-[90%] mx-6'>
-                        <List>
-                            <ListItem onClick={() => routeChange("education-loan")}>Education Loans</ListItem>
-                            <ListItem>Car Loans</ListItem>
-                            <ListItem>Home Loans</ListItem>
-                            <ListItem>Renovation Loans</ListItem>
-                            <ListItem>Personal Loans</ListItem>
-                        </List>
-                    </AccordionBody>
-                </Accordion>
-                <Accordion open={open === 3}>
-                    <AccordionHeader className='w-[90%] mx-6' onClick={() => handleOpen(3)}>
-                        Investments
-                    </AccordionHeader>
-                    <AccordionBody>
-                        We&apos;re not always in the position that we want to be at. We&apos;re constantly
-                        growing. We&apos;re constantly making mistakes. We&apos;re constantly trying to express
-                        ourselves and actualize our dreams.
-                    </AccordionBody>
-                </Accordion>
-            </div>
-            <div className="glossary">
-                <h1>Glossary</h1>
+
+                {Object.entries(filteredData).map(([category, items], index) => (
+                    <Accordion key={index} open={open === index}>
+                        <AccordionHeader onClick={() => handleOpen(index)}>
+                            {category}
+                        </AccordionHeader>
+                        <AccordionBody>
+                            <List>
+                                {items.map((item, itemIndex) => (
+                                    <ListItem key={itemIndex} onClick={() => routeChange(item.toLowerCase().replace(/\s+/g, '-'))}>
+                                        {item}
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </AccordionBody>
+                    </Accordion>
+                ))}
             </div>
         </>
     )

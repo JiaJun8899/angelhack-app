@@ -6,7 +6,7 @@ import {
     Typography
 } from "@material-tailwind/react";
 
-const EducationLoan = () => {
+const EducationLoans = () => {
     return (
         <>
             <div className="mt-6">
@@ -37,4 +37,4 @@ const EducationLoan = () => {
     )
 }
 
-export default EducationLoan
+export default EducationLoans

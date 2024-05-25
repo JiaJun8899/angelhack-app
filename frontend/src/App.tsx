@@ -5,7 +5,7 @@ import Login from './pages/login/login'
 import Home from './pages/home/home'
 import Explore from './pages/explore/explore'
 import SavingsAccount from './pages/explore/savings-account'
-import EducationLoan from './pages/explore/education-loan'
+import EducationLoans from './pages/explore/education-loans'
 import Profile from './pages/profile/profile'
 import Header from './components/header'
 import SocialMediaFeed from './pages/feed/feed'
@@ -21,7 +21,7 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/explore/savings-account" element={<SavingsAccount />} />
-            <Route path="/explore/education-loan" element={<EducationLoan />} />
+            <Route path="/explore/education-loans" element={<EducationLoans />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/feed" element={<SocialMediaFeed />} />
           </Routes>
