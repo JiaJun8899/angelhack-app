@@ -8,15 +8,23 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import Layout from './layout';
+import SocialMediaFeed from './pages/feed/feed';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
+    element: <Layout><Home/></Layout>
+  },  {
+    path: "/feed",
+    element: <Layout><SocialMediaFeed/></Layout>
   },
   {
     path: "/explore",
-    element: <Explore />
+    element: <Layout><Explore /></Layout>
+  },
+  {
+    path: "/explore",
+    element: <Layout><Explore /></Layout>
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -50,33 +50,20 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
   return (
     <>
       <TreeHeading header={header} subHeader={subHeader} />
-      <div style={styles.tableContainer}>
+      <div className="flex flex-col items-center">
         {circlesArray.map((numCircles, rowIndex) => (
           <div
             key={rowIndex}
-            style={{
-              ...styles.row,
-              display: rowIndex <= currentRow ? "flex" : "none",
-            }}
+            className={`flex justify-center mb-5 ${rowIndex <= currentRow ? 'block' : 'hidden'}`}
           >
             {Array.from({ length: numCircles }).map(
               (_, circleIndex) => (
                 <div
                   key={circleIndex}
-                  style={{
-                    ...styles.circle,
-                    backgroundColor: completedCircles[
-                      rowIndex
-                    ][circleIndex]
-                      ? "#6B8E23"
-                      : "#BDD2B6",
-                  }}
-                  onClick={() =>
-                    handleCircleClick(rowIndex, circleIndex)
-                  }
+                  className={`w-16 h-16 rounded-full flex justify-center items-center cursor-pointer mx-3 ${completedCircles[rowIndex][circleIndex] ? 'bg-green-600' : 'bg-green-300'}`}
+                  onClick={() => handleCircleClick(rowIndex, circleIndex)}
                 >
-                  {completedCircles[rowIndex][circleIndex] &&
-                    "✔"}
+                  {completedCircles[rowIndex][circleIndex] && "✔"}
                 </div>
               )
             )}
@@ -92,31 +79,6 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
       </div>
     </>
   );
-};
-
-const styles = {
-  tableContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  row: {
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: "25px",
-  },
-  circle: {
-    width: "75px",
-    height: "75px",
-    borderRadius: "50%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    cursor: "pointer",
-    margin: "0 15px",
-    color: "white",
-    fontSize: "30px",
-  },
 };
 
 export default Tree;
