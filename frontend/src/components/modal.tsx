@@ -14,11 +14,25 @@ interface ModalProps {
 	text: string;
 	audioSrc: string;
 	open: boolean;
+	isChinese: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, header, text, open }) => {
+const Modal: React.FC<ModalProps> = ({
+	onClose,
+	header,
+	text,
+	open,
+	isChinese,
+}) => {
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
+
+	const translations = {
+		playButton: "播放音频",
+		pauseButton: "暂停音频",
+		cancelButton: "取消",
+		confirmButton: "确认",
+	};
 
 	function playSound() {
 		if (isPlaying) {
@@ -28,6 +42,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, header, text, open }) => {
 		}
 		setIsPlaying(!isPlaying);
 	}
+
 	return (
 		<>
 			<Dialog open={open} handler={onClose}>
@@ -41,7 +56,13 @@ const Modal: React.FC<ModalProps> = ({ onClose, header, text, open }) => {
 						fullWidth
 						className="mt-2 mb-2"
 					>
-						{isPlaying ? "Pause Audio" : "Play Hokkien"}
+						{isChinese
+							? isPlaying
+								? translations.pauseButton
+								: translations.playButton
+							: isPlaying
+							? "Pause Hokkien"
+							: "Play Hokkien"}
 					</Button>
 				</DialogBody>
 				<DialogFooter>
@@ -51,10 +72,14 @@ const Modal: React.FC<ModalProps> = ({ onClose, header, text, open }) => {
 						onClick={onClose}
 						className="mr-1"
 					>
-						<span>Cancel</span>
+						<span>
+							{isChinese ? translations.cancelButton : "Cancel"}
+						</span>
 					</Button>
 					<Button variant="gradient" color="green" onClick={onClose}>
-						<span>Confirm</span>
+						<span>
+							{isChinese ? translations.confirmButton : "Confirm"}
+						</span>
 					</Button>
 				</DialogFooter>
 			</Dialog>
