@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Home from './pages/home/home';
 import './index.css'
 import Explore from './pages/explore/explore';
+import Profile from './pages/profile/profile';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/explore",
     element: <Explore />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')!).render(
