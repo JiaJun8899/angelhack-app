@@ -1,33 +1,38 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
 import Header from '../../components/header'
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    Typography,
+    Button,
+} from "@material-tailwind/react";
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const login: React.FC = () => {  
+const login: React.FC = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
+    const routeChange = (newPath: string) => {
+        navigate(location.pathname + newPath);
+    }
+
     return (
-    <>
-    <div
-        style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-        }}
-    >
-        <Header />
-        <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center justify-center mt-10">
-                <div className="bg-white rounded-lg shadow-md p-6 mb-4">
-                    <div className="flex flex-col items-center justify-center">
-                        <h2 className="text-xl font-bold">Login Page</h2>
-                        <div className="flex mt-4 md:mt-6">
-                            <a href="/Home" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Login with Singpass</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <Navbar />
-    </div>
-    </>
+        <>
+            <Card className="w-[90%] m-auto mt-6">
+                <CardBody>
+                    <Typography variant="h5" color="blue-gray" className="mb-2">
+                        Login
+                    </Typography>
+                    <Typography>
+                        Login with your singpass to access your profile.
+                    </Typography>
+                </CardBody>
+                <CardFooter className="pt-0">
+                    <Button color='red' className='text-white' onClick={() => routeChange("Home")}>Login with Singpass</Button>
+                </CardFooter>
+            </Card>
+        </>
     )
 }
 
