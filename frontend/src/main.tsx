@@ -14,14 +14,14 @@ import SocialMediaFeed from './pages/feed/feed';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout><Login/></Layout>
+    element: <Login/>
   },  {
     path: "/feed",
     element: <Layout><SocialMediaFeed/></Layout>
   },
   {
     path: "/home",
-    element: <Home/>
+    element: <Layout><Home/></Layout>
   },
   {
     path: "/explore",
