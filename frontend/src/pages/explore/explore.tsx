@@ -8,7 +8,7 @@ import {
     ListItem,
     Input
 } from "@material-tailwind/react";
-import exploreData from '../../data/explore-data'
+import {exploreData, resourceLinks} from '../../data/explore-data';
 
 const explore = () => {
     let navigate = useNavigate();
@@ -34,7 +34,7 @@ const explore = () => {
         }, {});
         setFilteredData(filtered);
     }
-
+    
     return (
         <>
             <div className="w-[90%] mt-6 text-center">
