@@ -1,13 +1,9 @@
 import React from 'react'
-import Header from '../../components/header'
-import Navbar from '../../components/navbar'
 import {
     Card,
     CardHeader,
     CardBody,
-    CardFooter,
-    Typography,
-    Button,
+    Typography
 } from "@material-tailwind/react";
 
 const EducationLoan = () => {

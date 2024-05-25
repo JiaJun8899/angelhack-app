@@ -18,14 +18,12 @@ const App = () => {
         <div className='flex flex-col items-center overflow-hidden w-auto'>
           <Header />
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/explore/savings-account" element={<SavingsAccount />} />
             <Route path="/explore/education-loan" element={<EducationLoan />} />
             <Route path="/profile" element={<Profile />} />
-            {/* Add a catch-all route for any unknown paths */}
-            <Route path="*" element={<Navigate to="/login" />} />
           </Routes>
           <Navbar />
         </div>
