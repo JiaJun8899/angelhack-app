@@ -4,6 +4,7 @@ import Home from './pages/home/home';
 import './index.css'
 import Explore from './pages/explore/explore';
 import Profile from './pages/profile/profile';
+import Login from './pages/login/login';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,10 +14,14 @@ import SocialMediaFeed from './pages/feed/feed';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout><Home/></Layout>
+    element: <Layout><Login/></Layout>
   },  {
     path: "/feed",
     element: <Layout><SocialMediaFeed/></Layout>
+  },
+  {
+    path: "/home",
+    element: <Home/>
   },
   {
     path: "/explore",
