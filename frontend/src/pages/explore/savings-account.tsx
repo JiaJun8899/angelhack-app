@@ -8,7 +8,10 @@ import {
     CardFooter,
     Typography,
     Button,
+    List,
+    ListItem,
 } from "@material-tailwind/react";
+import { savingsAccountLinks } from '../../data/explore-data';
 
 const SavingsAccount = () => {
     return (
@@ -22,7 +25,7 @@ const SavingsAccount = () => {
                         />
                     </CardHeader>
                     <CardBody>
-                        <Typography variant="h5" color="blue-gray" className="mb-2">
+                        <Typography variant="h4" color="blue-gray" className="mb-2">
                             Savings Account
                         </Typography>
                         <Typography>
@@ -34,6 +37,28 @@ const SavingsAccount = () => {
                             <br />
                             You can deposit and withdraw money as needed, but there might be limits on how often you can take money out without incurring fees.
                             It's a safe and reliable way to store your money while earning a little extra through interest.
+                        </Typography>
+                        <br />
+                        <Typography variant="h4" color="blue-gray" className="mb-2">
+                            Partners
+                        </Typography>
+                        <Typography>
+                            <List>
+                                {
+                                    savingsAccountLinks.map((link, index) => {
+                                        const bankName = Object.keys(link)[0];
+                                        const bankLink = link[bankName];
+                                        console.log(bankName, bankLink);
+                                        return (
+                                            <a href={bankLink} key={index} target="_blank" rel="noreferrer">
+                                                <ListItem>
+                                                    {bankName}
+                                                </ListItem>
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </List>
                         </Typography>
                     </CardBody>
                 </Card>
