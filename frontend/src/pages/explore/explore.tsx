@@ -25,18 +25,20 @@ const explore = () => {
         <>
             <div className='flex flex-col items-center overflow-hidden w-auto'>
                 <Header />
-                <div className="mt-6">
+                <div className="mt-6 max-w-md text-center">
                     <Input
                         type="text"
                         placeholder="Search for resources..."
-                        className="!border !border-gray-300 bg-white rounded-full text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 w-[90%] m-auto"
+                        className="w-[90%] !border !border-gray-300 bg-white rounded-full text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                         labelProps={{
                             className: "hidden",
                         }}
                     />
                     <Accordion open={open === 1}>
-                        <AccordionHeader onClick={() => handleOpen(1)}>Banking</AccordionHeader>
-                        <AccordionBody>
+                        <AccordionHeader className='w-[90%] mx-6' onClick={() => handleOpen(1)}>
+                            Banking
+                        </AccordionHeader>
+                        <AccordionBody className='w-[90%] mx-6'>
                             <List>
                                 <ListItem onClick={() => routeChange("savings-account")}>Savings Account</ListItem>
                                 <ListItem>Fixed Deposits</ListItem>
@@ -44,10 +46,10 @@ const explore = () => {
                         </AccordionBody>
                     </Accordion>
                     <Accordion open={open === 2}>
-                        <AccordionHeader onClick={() => handleOpen(2)}>
+                        <AccordionHeader className='w-[90%] mx-6' onClick={() => handleOpen(2)}>
                             Loans
                         </AccordionHeader>
-                        <AccordionBody>
+                        <AccordionBody className='w-[90%] mx-6'>
                             <List>
                                 <ListItem onClick={() => routeChange("education-loan")}>Education Loans</ListItem>
                                 <ListItem>Car Loans</ListItem>
@@ -58,7 +60,7 @@ const explore = () => {
                         </AccordionBody>
                     </Accordion>
                     <Accordion open={open === 3}>
-                        <AccordionHeader onClick={() => handleOpen(3)}>
+                        <AccordionHeader className='w-[90%] mx-6' onClick={() => handleOpen(3)}>
                             Investments
                         </AccordionHeader>
                         <AccordionBody>
