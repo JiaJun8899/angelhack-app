@@ -4,7 +4,6 @@ import Navbar from './components/navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>
