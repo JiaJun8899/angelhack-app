@@ -2,8 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from './pages/home/home';
 import './index.css'
+import Header from './components/header';
+import Navbar from './components/navbar';
 import Explore from './pages/explore/explore';
 import Profile from './pages/profile/profile';
+import SavingsAccount from './pages/explore/savings-account';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,11 +16,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
+    element: <Home />
   },
   {
     path: "/explore",
     element: <Explore />
+  },
+  {
+    path: "/explore/savings-account",
+    element: <SavingsAccount />
   },
   {
     path: "/profile",
