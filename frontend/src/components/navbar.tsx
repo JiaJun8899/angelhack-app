@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
     let navigate = useNavigate(); 
     let location = useLocation();
     const routeChange = (newPath: string) => { 
-        navigate(newPath);
+        navigate(location.pathname + newPath);
       }
     
     return (
