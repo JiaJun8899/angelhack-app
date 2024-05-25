@@ -8,7 +8,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Layout from './layout';
 import SocialMediaFeed from './pages/feed/feed';
 const router = createBrowserRouter([
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile />
+    element: <Layout><Profile /></Layout>
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')!).render(

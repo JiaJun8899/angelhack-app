@@ -7,16 +7,8 @@ interface HeadingProps {
 
 const TreeHeading: React.FC<HeadingProps> = ({ header, subHeader }) => {
   return (
-    <div
-      style={{
-        backgroundColor: "#f2f2f2",
-        padding: "20px",
-        marginBottom: "20px",
-        width: "100%",
-        textAlign: "center",
-      }}
-    >
-      <h1 style={{ marginBottom: "10px" }}>{header}</h1>
+    <div className="bg-gray-200 p-5 mb-5 w-full text-center">
+      <h1 className="mb-2">{header}</h1>
       <h2>{subHeader}</h2>
     </div>
   );
