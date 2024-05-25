@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import Modal from "../../components/modal";
 import TreeHeading from "./tree-heading";
 import {
-	Card,
-	CardBody,
-	Typography,
-	Avatar,
-	Input,
+    Accordion,
+    AccordionHeader,
+    AccordionBody,  
 	Button,
 	Switch,
 } from "@material-tailwind/react";
@@ -25,6 +23,8 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 			new Array(3).fill(false)
 		)
 	);
+    const [open, setOpen] = useState(1);
+    const handleOpen = (value) => setOpen(open === value ? 0 : value);
 	const [clickedCircle, setClickedCircle] = useState<{
 		row: number;
 		index: number;
@@ -40,85 +40,85 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 	const dummyDataEnglish = [
 		{
 			header: "Lesson on Scam 1",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 2",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 3",
-			text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 4",
-			text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 5",
-			text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 6",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 7",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 8",
-			text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 9",
-			text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
+			text: "Place Holder for a lesson page",
 		},
 		{
 			header: "Lesson on Scam 10",
-			text: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+			text: "Place Holder for a lesson page",
 		},
 	];
 	const dummyDataChinese = [
 		{
 			header: "骗局课程 1",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 2",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 3",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 4",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 5",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 6",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 7",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 8",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 9",
-			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+			text: "课程页面占位符",
 		},
 		{
 			header: "骗局课程 10",
-			text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			text: "课程页面占位符",
 		},
 	];
 	const dummyData = isChinese ? dummyDataChinese : dummyDataEnglish;
@@ -185,11 +185,14 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 	}, [clickedCircles, completedCircles, circlesArray]);
 
 	return (
-		<>
+        <Accordion open={open === 1}>
+        <AccordionHeader onClick={() => handleOpen(1)}>
 			<TreeHeading
 				header={isChinese ? header[1] : header[0]}
 				subHeader={isChinese ? subHeader[1] : subHeader[0]}
 			/>
+            </AccordionHeader>
+            <AccordionBody>
 			<div className="flex justify-end mb-4">
 				<Switch
 					className="bg-blue-500 text-white px-4 py-2 rounded"
@@ -247,6 +250,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 								clickedCircle.row * 3 + clickedCircle.index
 							].text
 						}
+                        open={showModal}
 					/>
 				)}
 				<Button
@@ -261,7 +265,8 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 					{allCompleted ? clickForRewardText : finishModulesText}
 				</Button>
 			</div>
-		</>
+            </AccordionBody>
+        </Accordion>
 	);
 };
 

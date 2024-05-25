@@ -1,5 +1,11 @@
 import React, { useState, useRef } from "react";
-import { Button } from "@material-tailwind/react";
+import {
+	Button,
+	Dialog,
+	DialogHeader,
+	DialogBody,
+	DialogFooter,
+} from "@material-tailwind/react";
 import helloSound from "../assets/helloSound.wav";
 
 interface ModalProps {
@@ -7,9 +13,10 @@ interface ModalProps {
 	header: string;
 	text: string;
 	audioSrc: string;
+	open: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, header, text }) => {
+const Modal: React.FC<ModalProps> = ({ onClose, header, text, open }) => {
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const [isPlaying, setIsPlaying] = useState(false);
 
@@ -21,29 +28,37 @@ const Modal: React.FC<ModalProps> = ({ onClose, header, text }) => {
 		}
 		setIsPlaying(!isPlaying);
 	}
-
 	return (
-		<div className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 flex justify-center items-center">
-			<div className="bg-white p-10 rounded-lg text-center relative">
-				<Button
-					onClick={onClose}
-					className="absolute top-3 right-3 text-black text-45"
-                    color = "red"
-				>
-					X
-				</Button>
-                
-				<h1><b>{header}</b></h1>
-				<p>{text}</p>
-				<audio ref={audioRef} src={helloSound} />
-				<Button onClick={playSound} color="blue" fullWidth className="mt-2 mb-2">
-					{isPlaying ? "Pause Audio" : "Play Hokkien"}
-				</Button>
-				<Button onClick={onClose} color="green" fullWidth>
-					Done
-				</Button>
-			</div>
-		</div>
+		<>
+			<Dialog open={open} handler={onClose}>
+				<DialogHeader>{header}</DialogHeader>
+				<DialogBody>
+					{text}
+					<audio ref={audioRef} src={helloSound} />
+					<Button
+						onClick={playSound}
+						color="blue"
+						fullWidth
+						className="mt-2 mb-2"
+					>
+						{isPlaying ? "Pause Audio" : "Play Hokkien"}
+					</Button>
+				</DialogBody>
+				<DialogFooter>
+					<Button
+						variant="text"
+						color="red"
+						onClick={onClose}
+						className="mr-1"
+					>
+						<span>Cancel</span>
+					</Button>
+					<Button variant="gradient" color="green" onClick={onClose}>
+						<span>Confirm</span>
+					</Button>
+				</DialogFooter>
+			</Dialog>
+		</>
 	);
 };
 
