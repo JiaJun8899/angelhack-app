@@ -1,11 +1,9 @@
-interface ExploreData {
-    [category: string]: string[];
-}
-
 let exploreData = {
     "Banking": [
         "Savings Account",
-        "Fixed Deposits"
+        "Fixed Deposits",
+        "Joint Accounts",
+        "Senior Citizen Accounts"
     ],
     "Loans": [
         "Education Loans",
@@ -20,4 +18,14 @@ let exploreData = {
     ]
 }
 
-export default exploreData;
+let savingsAccountLinks = [
+    {
+        "DBS Multiplier Account":
+            "https://www.dbs.com.sg/personal/deposits/bank-earn/multiplier"
+    },
+    {
+        "UOB One Account":
+            "https://www.uob.com.sg/personal/save/everyday-accounts/one-account.page"
+    }
+]
+export { exploreData, savingsAccountLinks };
