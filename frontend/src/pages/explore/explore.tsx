@@ -23,23 +23,16 @@ const explore = () => {
 
     return (
         <>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                }}
-            >
+            <div className='flex flex-col items-center overflow-hidden w-auto'>
                 <Header />
-                <div className="mt-6 resources">
+                <div className="mt-6">
                     <Input
                         type="text"
                         placeholder="Search for resources..."
-                        className="!border !border-gray-300 bg-white rounded-full text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                        className="!border !border-gray-300 bg-white rounded-full text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 w-[90%] m-auto"
                         labelProps={{
                             className: "hidden",
                         }}
-                        containerProps={{ className: "min-w-[100px]" }}
                     />
                     <Accordion open={open === 1}>
                         <AccordionHeader onClick={() => handleOpen(1)}>Banking</AccordionHeader>
@@ -56,7 +49,7 @@ const explore = () => {
                         </AccordionHeader>
                         <AccordionBody>
                             <List>
-                                <ListItem>Education Loans</ListItem>
+                                <ListItem onClick={() => routeChange("education-loan")}>Education Loans</ListItem>
                                 <ListItem>Car Loans</ListItem>
                                 <ListItem>Home Loans</ListItem>
                                 <ListItem>Renovation Loans</ListItem>

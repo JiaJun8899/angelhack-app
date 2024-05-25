@@ -12,6 +12,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import EducationLoan from './pages/explore/education-loan';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/explore/savings-account",
     element: <SavingsAccount />
+  },
+  {
+    path: "/explore/education-loan",
+    element: <EducationLoan />
   },
   {
     path: "/profile",

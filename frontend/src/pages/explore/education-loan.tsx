@@ -10,12 +10,12 @@ import {
     Button,
 } from "@material-tailwind/react";
 
-const SavingsAccount = () => {
+const EducationLoan = () => {
     return (
         <>
             <div className='flex flex-col items-center overflow-hidden w-auto'>
                 <Header />
-                <div className="mt-6 max-w-md">
+                <div className="mt-6">
                     <Card className="w-[90%] m-auto mt-6 mb-24">
                         <CardHeader color="blue-gray" className="relative h-56">
                             <img
@@ -25,17 +25,16 @@ const SavingsAccount = () => {
                         </CardHeader>
                         <CardBody>
                             <Typography variant="h5" color="blue-gray" className="mb-2">
-                                Savings Account
+                                Education Loan
                             </Typography>
                             <Typography>
-                            A savings account is a type of bank account where you can deposit your money and earn interest on it over time. 
-                            <br/>
-                            <br/>
-                            It's meant for saving rather than everyday transactions, so it typically offers a higher interest rate than a checking account. 
-                            <br/>
-                            <br/>
-                            You can deposit and withdraw money as needed, but there might be limits on how often you can take money out without incurring fees. 
-                            It's a safe and reliable way to store your money while earning a little extra through interest.
+                                An education loan, also known as a student loan, is a type of financial assistance specifically designed to help students pay for higher education expenses such as tuition fees, books, and living expenses.
+                                <br />
+                                <br />
+                                These loans are offered by banks, financial institutions, and government agencies. They typically have lower interest rates compared to other types of loans and often offer flexible repayment options, such as deferred payments until after graduation.
+                                <br />
+                                <br />
+                                The purpose of education loans is to make higher education more accessible to students who may not have the financial means to afford it otherwise.
                             </Typography>
                         </CardBody>
                     </Card>
@@ -46,4 +45,4 @@ const SavingsAccount = () => {
     )
 }
 
-export default SavingsAccount
+export default EducationLoan
