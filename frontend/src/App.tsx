@@ -1,5 +1,4 @@
-// import { useState } from 'react'
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/navbar'
 import Login from './pages/login/login'
@@ -9,7 +8,7 @@ import SavingsAccount from './pages/explore/savings-account'
 import EducationLoan from './pages/explore/education-loan'
 import Profile from './pages/profile/profile'
 import Header from './components/header'
-
+import SocialMediaFeed from './pages/feed/feed'
 const App = () => {
 
   return (
@@ -24,6 +23,7 @@ const App = () => {
             <Route path="/explore/savings-account" element={<SavingsAccount />} />
             <Route path="/explore/education-loan" element={<EducationLoan />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/feed" element={<SocialMediaFeed />} />
           </Routes>
           <Navbar />
         </div>

@@ -1,23 +1,23 @@
 import React from "react";
 import Tree from "./tree";
-import Navbar from "../../components/navbar";
-import Header from "../../components/header";
 
 const Home: React.FC = () => {
-	return (
-		<>
-			<Tree
-				circlesArray={[1, 3, 2, 1]}
-				header="Unit 1"
-				subHeader="Foundations of Scam"
-			/>
-			<Tree
-				circlesArray={[1, 2, 1]}
-				header="Unit 2"
-				subHeader="Advanced Scams"
-			/>
-		</>
-	);
+    return (
+        <>
+            <div className="flex flex-col items-center">
+                <Tree
+                    circlesArray={[1, 3, 2, 1]}
+                    header={["Unit 1","切换为英文"]}
+                    subHeader={["Foundations of Scam","切换为英文"]}
+                />
+                <Tree
+                    circlesArray={[1, 2, 1]}
+                    header={["Unit 2","切换为英文"]}
+                    subHeader={["Advanced Scams","切换为英文"]}
+                />
+            </div>
+        </>
+    );
 };
 
 export default Home;
