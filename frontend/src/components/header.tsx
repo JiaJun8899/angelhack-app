@@ -3,7 +3,7 @@ import React from "react";
 const Header: React.FC = () => {
 	return (
 		<div className="flex justify-between items-center p-2 bg-gray-900 text-white w-full">
-			<div className="flex-1 text-center">appname</div>
+			<div className="flex-1 text-center">FINLINGO</div>
 
 			<div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
 				<svg

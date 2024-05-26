@@ -10,6 +10,7 @@ import Profile from './pages/profile/profile'
 import Header from './components/header'
 import SocialMediaFeed from './pages/feed/feed'
 import Quiz from './pages/home/lesson'
+import RewardsPage from './pages/rewards/rewards'
 const App = () => {
 
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/feed" element={<SocialMediaFeed />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="/rewards" element={<RewardsPage />} />
           </Routes>
           <Navbar />
         </div>
