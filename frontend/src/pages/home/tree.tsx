@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Modal from "../../components/modal";
 import TreeHeading from "./tree-heading";
 import {
-    Accordion,
-    AccordionHeader,
-    AccordionBody,  
+	Accordion,
+	AccordionHeader,
+	AccordionBody,
 	Button,
 	Switch,
 } from "@material-tailwind/react";
@@ -17,14 +17,14 @@ interface TreeProps {
 }
 
 const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
-	let navigate = useNavigate(); 
-    let location = useLocation();
-    const rootUrl = window.location.origin;
-    const routeChange = (newPath: string) => {
-        const targetPath = rootUrl + '/' + newPath;
-        if (targetPath === rootUrl + location.pathname) return; // Do nothing if already on the target path
-        navigate(newPath);
-    }
+	let navigate = useNavigate();
+	let location = useLocation();
+	const rootUrl = window.location.origin;
+	const routeChange = (newPath: string) => {
+		const targetPath = rootUrl + '/' + newPath;
+		if (targetPath === rootUrl + location.pathname) return; // Do nothing if already on the target path
+		navigate(newPath);
+	}
 	const [currentRow, setCurrentRow] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [completedCircles, setCompletedCircles] = useState<boolean[][]>(
@@ -32,8 +32,8 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 			new Array(3).fill(false)
 		)
 	);
-    const [open, setOpen] = useState(1);
-    const handleOpen = (value) => setOpen(open === value ? 0 : value);
+	const [open, setOpen] = useState(1);
+	const handleOpen = (value) => setOpen(open === value ? 0 : value);
 	const [clickedCircle, setClickedCircle] = useState<{
 		row: number;
 		index: number;
@@ -174,7 +174,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 				const newCompletedCircles = prev.map((row, rowIndex) =>
 					row.map((circle, circleIndex) =>
 						rowIndex === clickedCircle.row &&
-						circleIndex === clickedCircle.index
+							circleIndex === clickedCircle.index
 							? true
 							: circle
 					)
@@ -194,89 +194,85 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 	}, [clickedCircles, completedCircles, circlesArray]);
 
 	return (
-        <Accordion open={open === 1}>
-        <AccordionHeader onClick={() => handleOpen(1)}>
-			<TreeHeading
-				header={isChinese ? header[1] : header[0]}
-				subHeader={isChinese ? subHeader[1] : subHeader[0]}
-			/>
-            </AccordionHeader>
-            <AccordionBody>
-			<div className="flex justify-end mb-4 px-8">
-				<Switch
-					className="bg-blue-500 text-white px-4 py-2 rounded"
-					onClick={toggleLanguage}
-					label={"中文"}
-				></Switch>
-			</div>
-			<div className="flex flex-col items-center">
-				{circlesArray.map((numCircles, rowIndex) => (
-					<div key={rowIndex} className="flex justify-center">
-						{Array.from({ length: numCircles }).map(
-							(_, circleIndex) => (
-								<div
-									key={circleIndex}
-									className={`w-16 h-16 rounded-full flex justify-center items-center cursor-pointer mx-3
-                    ${
-						completedCircles[rowIndex][circleIndex]
-							? "bg-green-600 text-white font-bold text-xl"
-							: clickedCircles[rowIndex][circleIndex]
-							? "bg-green-300"
-							: "bg-gray-300"
-					}
-                    ${
-						clickedCircles[rowIndex][circleIndex]
-							? "border-4 border-yellow-500"
-							: ""
-					}
-                    ${
-						rowIndex === circlesArray.length - 1 &&
-						circleIndex === numCircles - 1
-							? "mb-0"
-							: "mb-5"
-					}`}
-									onClick={() =>
-										handleCircleClick(rowIndex, circleIndex)
-									}
-								>
-									{completedCircles[rowIndex][circleIndex] &&
-										"✔"}
-								</div>
-							)
-						)}
-					</div>
-				))}
-				{showModal && clickedCircle && (
-					<Modal
-						onClose={handleCloseModal}
-						header={
-							dummyData[
-								clickedCircle.row * 3 + clickedCircle.index
-							].header
-						}
-						text={
-							dummyData[
-								clickedCircle.row * 3 + clickedCircle.index
-							].text
-						}
-                        open={showModal}
-                        isChinese={isChinese}
-					/>
-				)}
-				<Button
-					disabled={!allCompleted}
-					className={`mt-5 mb-5 px-4 py-2 rounded ${
-						allCompleted
+		<Accordion open={open === 1}>
+			<AccordionHeader className="flex flex-col justify-center text-center bg-[#2196f3] text-white focus:text-white rounded-2xl mt-6" onClick={() => handleOpen(1)}>
+				<TreeHeading
+					header={isChinese ? header[1] : header[0]}
+					subHeader={isChinese ? subHeader[1] : subHeader[0]}
+				/>
+			</AccordionHeader>
+			<AccordionBody>
+				<div className="flex justify-end mb-4 px-8">
+					<Switch
+						className="bg-blue-500 text-white px-4 py-2 rounded"
+						onClick={toggleLanguage}
+						label={"中文"}
+					></Switch>
+				</div>
+				<div className="flex flex-col items-center">
+					{circlesArray.map((numCircles, rowIndex) => (
+						<div key={rowIndex} className="flex justify-center">
+							{Array.from({ length: numCircles }).map(
+								(_, circleIndex) => (
+									<div
+										key={circleIndex}
+										className={`w-16 h-16 rounded-full flex justify-center items-center cursor-pointer mx-3
+                    ${completedCircles[rowIndex][circleIndex]
+												? "bg-green-600 text-white font-bold text-xl"
+												: clickedCircles[rowIndex][circleIndex]
+													? "bg-green-300"
+													: "bg-gray-300"
+											}
+                    ${clickedCircles[rowIndex][circleIndex]
+												? "border-4 border-yellow-500"
+												: ""
+											}
+                    ${rowIndex === circlesArray.length - 1 &&
+												circleIndex === numCircles - 1
+												? "mb-0"
+												: "mb-5"
+											}`}
+										onClick={() =>
+											handleCircleClick(rowIndex, circleIndex)
+										}
+									>
+										{completedCircles[rowIndex][circleIndex] &&
+											"✔"}
+									</div>
+								)
+							)}
+						</div>
+					))}
+					{showModal && clickedCircle && (
+						<Modal
+							onClose={handleCloseModal}
+							header={
+								dummyData[
+									clickedCircle.row * 3 + clickedCircle.index
+								].header
+							}
+							text={
+								dummyData[
+									clickedCircle.row * 3 + clickedCircle.index
+								].text
+							}
+							open={showModal}
+							isChinese={isChinese}
+						/>
+					)}
+					<Button
+						disabled={!allCompleted}
+						className={`mt-5 mb-5 px-4 py-2 rounded ${allCompleted
 							? "bg-blue-500 text-white"
 							: "bg-gray-400 text-gray-700"
-					}`}
-					onClick={() => alert(congratulationsText)}
-				>
-					{allCompleted ? clickForRewardText : finishModulesText}
-				</Button>
-			</div>
-            </AccordionBody>
-        </Accordion>
+							}`}
+						onClick={() => alert(congratulationsText)}
+					>
+						{allCompleted ? clickForRewardText : finishModulesText}
+					</Button>
+				</div>
+			</AccordionBody>
+		</Accordion>
 	);
 };
 

@@ -19,17 +19,19 @@ const App = () => {
       <Router>
         <div className='flex flex-col items-center overflow-hidden w-auto'>
           <Header />
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/explore/savings-account" element={<SavingsAccount />} />
-            <Route path="/explore/education-loans" element={<EducationLoans />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/feed" element={<SocialMediaFeed />} />
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/rewards" element={<RewardsPage />} />
-          </Routes>
+          <div className='flex-1 w-full overflow-y-hidden mt-16'>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/explore/savings-account" element={<SavingsAccount />} />
+              <Route path="/explore/education-loans" element={<EducationLoans />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/feed" element={<SocialMediaFeed />} />
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/rewards" element={<RewardsPage />} />
+            </Routes>
+          </div>
           <Navbar />
         </div>
       </Router>

@@ -7,10 +7,10 @@ interface HeadingProps {
 
 const TreeHeading: React.FC<HeadingProps> = ({ header, subHeader }) => {
   return (
-    <div className="bg-gray-200 p-5 mb-5 w-full text-center ml-3 rounded-lg">
-      <h1 className="mb-2">{header}</h1>
-      <h2>{subHeader}</h2>
-    </div>
+    <>
+      <div className="text-sm">{header}</div>
+      <div className="text-md">{subHeader}</div>
+    </>
   );
 };
 

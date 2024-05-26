@@ -24,9 +24,9 @@ const Home: React.FC = () => {
 			subHeader: ["Scam Prevention", "诈骗预防"],
 		},
 	];
-
+	// w-[90%] mt-6 mx-auto text-center
 	return (
-		<div className="items-center mb-24 w-full">
+		<div className="flex flex-col w-[90%] mx-auto mb-24">
 			{treeData.map((data, index) => (
 				<Tree
 					key={index}

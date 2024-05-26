@@ -19,7 +19,7 @@ const login: React.FC = () => {
 
     return (
         <>
-            <Card className="w-[90%] m-auto mt-6">
+            <Card className="w-[90%] m-auto mt-20">
                 <CardBody>
                     <Typography variant="h5" color="blue-gray" className="mb-2">
                         Login

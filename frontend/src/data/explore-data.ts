@@ -15,6 +15,20 @@ let exploreData = {
     "Cards": [
         "Credit Cards",
         "Debit Cards"
+    ],
+    "Investments": [
+        "Stocks",
+        "Mutual Funds",
+        "Bonds",
+        "ETFs",
+        "Retirement Accounts"
+    ],
+    "Insurance": [
+        "Health Insurance",
+        "Life Insurance",
+        "Car Insurance",
+        "Travel Insurance",
+        "Home Insurance"
     ]
 }
 

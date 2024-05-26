@@ -17,7 +17,7 @@ const explore = () => {
         navigate(location.pathname + "/" + newPath);
     }
 
-    const [open, setOpen] = React.useState(1);
+    const [open, setOpen] = useState(1);
     const [filteredData, setFilteredData] = useState(exploreData);
 
     const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
@@ -37,7 +37,7 @@ const explore = () => {
     
     return (
         <>
-            <div className="w-[90%] mt-6 text-center">
+            <div className="w-[90%] mt-6 mx-auto text-center">
                 <Input
                     type="text"
                     placeholder="Search for resources..."

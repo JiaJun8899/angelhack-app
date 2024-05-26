@@ -16,7 +16,7 @@ import { savingsAccountLinks } from '../../data/explore-data';
 const SavingsAccount = () => {
     return (
         <>
-            <div className="mt-6 max-w-md">
+            <div className="mt-auto max-w-md">
                 <Card className="w-[90%] m-auto mt-6 mb-24">
                     <CardHeader color="blue-gray" className="relative h-56">
                         <img
