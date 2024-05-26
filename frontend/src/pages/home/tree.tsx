@@ -195,7 +195,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 
 	return (
         <Accordion open={open === 1}>
-        <AccordionHeader onClick={() => handleOpen(1)}>
+        <AccordionHeader onClick={() => handleOpen(1)} className="">
 			<TreeHeading
 				header={isChinese ? header[1] : header[0]}
 				subHeader={isChinese ? subHeader[1] : subHeader[0]}
@@ -270,7 +270,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 							? "bg-blue-500 text-white"
 							: "bg-gray-400 text-gray-700"
 					}`}
-					onClick={() => routeChange("rewards")}
+					onClick={() => alert(congratulationsText)}
 				>
 					{allCompleted ? clickForRewardText : finishModulesText}
 				</Button>
