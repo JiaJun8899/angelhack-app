@@ -26,7 +26,7 @@ const Home: React.FC = () => {
 	];
 
 	return (
-		<div className="flex flex-col items-center mb-24 w-full">
+		<div className="items-center mb-24 w-full">
 			{treeData.map((data, index) => (
 				<Tree
 					key={index}
