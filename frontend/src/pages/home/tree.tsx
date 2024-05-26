@@ -33,7 +33,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 		)
 	);
 	const [open, setOpen] = useState(1);
-	const handleOpen = (value) => setOpen(open === value ? 0 : value);
+	const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 	const [clickedCircle, setClickedCircle] = useState<{
 		row: number;
 		index: number;
@@ -195,7 +195,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 
 	return (
 		<Accordion open={open === 1}>
-			<AccordionHeader className="flex flex-col justify-center text-center bg-[#2196f3] text-white active:text-white rounded-2xl mt-6" onClick={() => handleOpen(1)}>
+			<AccordionHeader className="flex flex-col justify-center text-center bg-[#2196f3] text-white rounded-2xl mt-6" onClick={() => handleOpen(1)}>
 				<TreeHeading
 					header={isChinese ? header[1] : header[0]}
 					subHeader={isChinese ? subHeader[1] : subHeader[0]}
