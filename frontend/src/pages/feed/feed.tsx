@@ -176,6 +176,7 @@ const SocialMediaFeed: React.FC = () => {
                         <div className="relative flex w-full max-w-[24rem]">
                             <Input
                                 type="text"
+                                id={`comment-input-${post.id}`}
                                 label={isChinese ? "评论" : "Comment"}
                                 className="pr-20"
                                 placeholder={isChinese ? "添加评论..." : "Add a comment..."}

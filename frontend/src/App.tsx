@@ -9,6 +9,7 @@ import EducationLoans from './pages/explore/education-loans'
 import Profile from './pages/profile/profile'
 import Header from './components/header'
 import SocialMediaFeed from './pages/feed/feed'
+import Quiz from './pages/home/lesson'
 const App = () => {
 
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/explore/education-loans" element={<EducationLoans />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/feed" element={<SocialMediaFeed />} />
+            <Route path="/quiz" element={<Quiz />} />
           </Routes>
           <Navbar />
         </div>

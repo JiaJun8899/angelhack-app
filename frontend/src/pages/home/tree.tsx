@@ -210,7 +210,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 									className={`w-16 h-16 rounded-full flex justify-center items-center cursor-pointer mx-3
                     ${
 						completedCircles[rowIndex][circleIndex]
-							? "bg-green-600"
+							? "bg-green-600 text-white font-bold text-xl"
 							: clickedCircles[rowIndex][circleIndex]
 							? "bg-green-300"
 							: "bg-gray-300"
@@ -251,6 +251,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 							].text
 						}
                         open={showModal}
+                        isChinese={isChinese}
 					/>
 				)}
 				<Button
