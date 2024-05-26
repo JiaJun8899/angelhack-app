@@ -5,6 +5,7 @@ const profile: React.FC = () => {
     const additionalBio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lobortis libero.";
     return (
         <>
+        
             <div className="container mx-auto mb-24 px-4">
                 <div className="flex flex-col items-center justify-center mt-10">
                     <div className="bg-white rounded-lg shadow-md p-6 mb-4">
