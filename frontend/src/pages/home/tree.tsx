@@ -202,7 +202,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 			/>
             </AccordionHeader>
             <AccordionBody>
-			<div className="flex justify-end mb-4">
+			<div className="flex justify-end mb-4 px-8">
 				<Switch
 					className="bg-blue-500 text-white px-4 py-2 rounded"
 					onClick={toggleLanguage}
