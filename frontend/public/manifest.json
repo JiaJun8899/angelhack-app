@@ -5,7 +5,7 @@
     "background_color": "#fa99ca",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": ".",
     "description": "Ollamak - Fingo",
     "orientation": "any",
     "icons": []
