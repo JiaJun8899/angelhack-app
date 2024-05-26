@@ -17,7 +17,7 @@ interface TreeProps {
 }
 
 const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
-    let navigate = useNavigate(); 
+	let navigate = useNavigate(); 
     let location = useLocation();
     const rootUrl = window.location.origin;
     const routeChange = (newPath: string) => {
@@ -136,12 +136,12 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 	};
 	const translations = {
 		en: {
-			finishModules: "Finish all modules for a reward",
+			finishModules: "Finish all modules for  $5 NTUC Voucher",
 			congratulations: "Congratulations! Here is your reward!",
 			clickForReward: "Click here for $5 NTUC Voucher",
 		},
 		zh: {
-			finishModules: "完成所有模块以获得奖励",
+			finishModules: "完成所有模块以获得5美元的NTUC优惠券",
 			congratulations: "恭喜你！这是你的奖励！",
 			clickForReward: "点这里点击领取5美元的NTUC优惠券",
 		},
@@ -195,14 +195,14 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 
 	return (
         <Accordion open={open === 1}>
-        <AccordionHeader onClick={() => handleOpen(1)} className="">
+        <AccordionHeader onClick={() => handleOpen(1)}>
 			<TreeHeading
 				header={isChinese ? header[1] : header[0]}
 				subHeader={isChinese ? subHeader[1] : subHeader[0]}
 			/>
             </AccordionHeader>
             <AccordionBody>
-			<div className="flex justify-end mb-4 px-8">
+			<div className="flex justify-end mb-4">
 				<Switch
 					className="bg-blue-500 text-white px-4 py-2 rounded"
 					onClick={toggleLanguage}
