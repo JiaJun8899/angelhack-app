@@ -15,6 +15,7 @@ const App = () => {
 
   return (
     <>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <Router>
         <div className='flex flex-col items-center overflow-hidden w-auto'>
           <Header />
