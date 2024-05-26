@@ -40,7 +40,7 @@ const SavingsAccount = () => {
                         </Typography>
                         <br />
                         <Typography variant="h4" color="blue-gray" className="mb-2">
-                            Partners
+                            Create with our partners
                         </Typography>
                         <Typography>
                             <List>
@@ -50,7 +50,7 @@ const SavingsAccount = () => {
                                         const bankLink = link[bankName];
                                         console.log(bankName, bankLink);
                                         return (
-                                            <a href={bankLink} key={index} target="_blank" rel="noreferrer">
+                                            <a className='underline' href={bankLink} key={index} target="_blank" rel="noreferrer">
                                                 <ListItem>
                                                     {bankName}
                                                 </ListItem>

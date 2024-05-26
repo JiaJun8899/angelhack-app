@@ -48,7 +48,7 @@ const explore = () => {
 
                 {Object.entries(filteredData).map(([category, items], index) => (
                     <Accordion key={index} open={open === index}>
-                        <AccordionHeader onClick={() => handleOpen(index)}>
+                        <AccordionHeader className="text-md" onClick={() => handleOpen(index)}>
                             {category}
                         </AccordionHeader>
                         <AccordionBody>
