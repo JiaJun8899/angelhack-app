@@ -1,16 +1,10 @@
 import React from 'react';
 import {
     Card,
-    CardHeader,
     CardBody,
     Typography,
     Button,
   } from "@material-tailwind/react";
-interface Reward {
-  heading: string;
-  description: string;
-  points: number;
-}
 
 const rewardsData = [
     {

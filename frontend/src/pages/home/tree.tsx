@@ -8,6 +8,7 @@ import {
 	Button,
 	Switch,
 } from "@material-tailwind/react";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface TreeProps {
 	circlesArray: number[];
@@ -16,6 +17,14 @@ interface TreeProps {
 }
 
 const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
+    let navigate = useNavigate(); 
+    let location = useLocation();
+    const rootUrl = window.location.origin;
+    const routeChange = (newPath: string) => {
+        const targetPath = rootUrl + '/' + newPath;
+        if (targetPath === rootUrl + location.pathname) return; // Do nothing if already on the target path
+        navigate(newPath);
+    }
 	const [currentRow, setCurrentRow] = useState(0);
 	const [showModal, setShowModal] = useState(false);
 	const [completedCircles, setCompletedCircles] = useState<boolean[][]>(
@@ -129,12 +138,12 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 		en: {
 			finishModules: "Finish all modules for a reward",
 			congratulations: "Congratulations! Here is your reward!",
-			clickForReward: "Click for Reward",
+			clickForReward: "Click here for $5 NTUC Voucher",
 		},
 		zh: {
 			finishModules: "完成所有模块以获得奖励",
 			congratulations: "恭喜你！这是你的奖励！",
-			clickForReward: "点击领取奖励",
+			clickForReward: "点这里点击领取5美元的NTUC优惠券",
 		},
 	};
 
@@ -193,7 +202,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 			/>
             </AccordionHeader>
             <AccordionBody>
-			<div className="flex justify-end mb-4">
+			<div className="flex justify-end mb-4 px-8">
 				<Switch
 					className="bg-blue-500 text-white px-4 py-2 rounded"
 					onClick={toggleLanguage}
@@ -261,7 +270,7 @@ const Tree: React.FC<TreeProps> = ({ circlesArray, header, subHeader }) => {
 							? "bg-blue-500 text-white"
 							: "bg-gray-400 text-gray-700"
 					}`}
-					onClick={() => alert(congratulationsText)}
+					onClick={() => routeChange("rewards")}
 				>
 					{allCompleted ? clickForRewardText : finishModulesText}
 				</Button>
