@@ -16,7 +16,7 @@ const App = () => {
   return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      <link rel= "manifest" href= "./public/manifest.json" />
+      <link rel= "manifest" href= "../public/manifest.json" />
       <Router>
         <div className='flex flex-col items-center overflow-hidden w-auto'>
           <Header />
